@@ -1,3 +1,5 @@
+"use client";
+
 import Spotlight from "./ui/Spotlight";
 import GridBackground from "./ui/GridBackground";
 

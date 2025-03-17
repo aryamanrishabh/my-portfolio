@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+
 import { WorkExperience } from "@/lib/types";
 
 export const Timeline = ({ data }: { data: WorkExperience[] }) => {

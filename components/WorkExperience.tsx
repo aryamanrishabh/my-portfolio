@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Timeline } from "./ui/Timeline";
 import { workExperiences } from "@/lib/metadata";
