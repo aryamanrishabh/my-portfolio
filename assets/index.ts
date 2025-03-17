@@ -36,4 +36,3 @@ export * from "./tRPC";
 export * from "./TS";
 export * from "./VSC";
 export * from "./Webpack";
-export * from "./Zod";
