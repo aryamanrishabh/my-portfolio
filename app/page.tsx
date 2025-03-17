@@ -1,3 +1,5 @@
+"use client";
+
 import Hero from "@/components/Hero";
 import FloatingNav from "@/components/ui/FloatingNav";
 import StackAnimation from "@/components/StackAnimation";
