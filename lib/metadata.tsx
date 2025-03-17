@@ -6,8 +6,7 @@ import { GridItem, NavItem, SocialMedia, WorkExperience } from "./types";
 
 export const navItems: NavItem[] = [
   { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
+  { name: "Experience", link: "#experience" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -15,11 +14,12 @@ export const gridItems: GridItem[] = [
   {
     id: 1,
     spareImg: "",
-    img: "/b1.jpg",
+    img: "/b2.png",
     description: "",
-    imgClassName: "w-full h-full",
+    imgClassName: "absolute w-36 right-4 md:w-1/2",
     titleClassName: "justify-end",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className:
+      "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh] !bg-gradient-to-br from-[#6C00A2] via-[#3A005E] via-[#001152] to-[rgb(4,7,29)] bg-no-repeat",
     title: "Turning ideas into intuitive experiences",
   },
   {
@@ -69,7 +69,7 @@ export const gridItems: GridItem[] = [
     spareImg: "",
     description: "",
     imgClassName: "",
-    title: "Let’s build something awesome, reach out!",
+    title: "Checkout my Resume!",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",
   },
@@ -80,14 +80,14 @@ export const workExperiences: WorkExperience[] = [
     title: "July 2024",
     content: (
       <div className="flex flex-col gap-y-2">
-        <h2 className="text-2xl font-semibold tracking-wider md:text-3xl">
+        <h2 className="text-xl font-semibold tracking-wider md:text-3xl">
           Software Engineer
         </h2>
-        <h4 className="text-purple mb-2 text-lg font-medium tracking-wide md:text-xl">
+        <h4 className="text-purple mb-2 text-base font-medium tracking-wide md:text-xl">
           NYU College of Arts & Science
         </h4>
 
-        <p className="text-white-200">
+        <p className="text-white-200 text-sm leading-relaxed">
           At NYU, I had the opportunity to work on a student appointment booking
           platform, which deepened my understanding of full-stack development.
         </p>
@@ -98,14 +98,14 @@ export const workExperiences: WorkExperience[] = [
     title: "Dec 2021",
     content: (
       <div className="flex flex-col gap-y-2">
-        <h2 className="text-2xl font-semibold tracking-wide md:text-3xl">
+        <h2 className="text-xl font-semibold tracking-wider md:text-3xl">
           Frontend Engineer
         </h2>
-        <h4 className="text-purple mb-2 text-lg font-medium tracking-wide md:text-xl">
+        <h4 className="text-purple mb-2 text-base font-medium tracking-wide md:text-xl">
           Amaha (Mental Health Startup)
         </h4>
 
-        <p className="text-white-200">
+        <p className="text-white-200 text-sm leading-relaxed">
           At Amaha, I deepened my expertise in frontend development by working
           on performance optimization, SEO, and scalable UI architecture.
         </p>
@@ -115,15 +115,15 @@ export const workExperiences: WorkExperience[] = [
   {
     title: "Sept 2021",
     content: (
-      <div className="flex flex-col">
-        <h2 className="text-2xl font-semibold tracking-wide md:text-3xl">
+      <div className="flex flex-col gap-y-2">
+        <h2 className="text-xl font-semibold tracking-wider md:text-3xl">
           Frontend Engineer Intern
         </h2>
-        <h4 className="text-purple mb-2 text-lg font-medium tracking-wide md:text-xl">
+        <h4 className="text-purple mb-2 text-base font-medium tracking-wide md:text-xl">
           Amaha (Mental Health Startup)
         </h4>
 
-        <p className="text-white-200">
+        <p className="text-white-200 text-sm leading-relaxed">
           My internship at Amaha was my first exposure to building
           production-ready features, where I learned how to optimize real-time
           interactions and improve user experience.

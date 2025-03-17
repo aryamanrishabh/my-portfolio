@@ -24,7 +24,6 @@ const FloatingNav = ({
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       const direction = current! - scrollYProgress.getPrevious()!;
 
@@ -55,7 +54,7 @@ const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "fixed inset-x-0 top-10 z-[5000] mx-auto flex max-w-fit items-center justify-center space-x-4 rounded-full border border-transparent bg-white py-2 pr-2 pl-8 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:border-white/[0.2] dark:bg-black",
+          "fixed inset-x-0 top-10 z-[5000] mx-auto flex max-w-fit items-center justify-center space-x-4 rounded-full border border-transparent bg-white px-4 py-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] dark:border-white/[0.2] dark:bg-black",
           className,
         )}
       >
@@ -64,17 +63,16 @@ const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative flex items-center space-x-1 text-neutral-600 hover:text-neutral-500 dark:text-neutral-50 dark:hover:text-neutral-300",
+              "group relative inline-flex overflow-hidden rounded-full p-[1px] hover:text-neutral-500 focus:outline-none dark:text-neutral-50 dark:hover:text-neutral-300",
+              className,
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden text-sm sm:block">{navItem.name}</span>
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] transition-all group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-1 py-1 text-sm tracking-wide backdrop-blur-3xl sm:block md:px-3">
+              {navItem.name}
+            </span>
           </Link>
         ))}
-        <button className="relative rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-black dark:border-white/[0.2] dark:text-white">
-          <span>Login</span>
-          <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-        </button>
       </motion.div>
     </AnimatePresence>
   );

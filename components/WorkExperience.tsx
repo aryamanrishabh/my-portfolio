@@ -4,9 +4,9 @@ import { workExperiences } from "@/lib/metadata";
 
 const WorkExperience = () => {
   return (
-    <div>
+    <section id="experience">
       <Timeline data={workExperiences} />
-    </div>
+    </section>
   );
 };
 

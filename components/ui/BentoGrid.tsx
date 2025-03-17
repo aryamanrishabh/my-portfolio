@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-// import Image from "next/image";
 import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
-import { FiCopy } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 
 import GridGlobe from "./GridGlobe";
 import MagicButton from "./MagicButton";
-import animationData from "@/lib/confetti.json";
 import { BackgroundGradientAnimation } from "./GradientBg";
+
+import animationData from "@/lib/confetti.json";
 
 export const BentoGrid = ({
   className,
@@ -55,21 +55,30 @@ export const BentoGridItem = ({
   const leftLists = ["JavaScript", "ReactJS", "NextJS"];
   const rightLists = ["TypeScript", "Redux", "NodeJS"];
 
-  const [copied, setCopied] = useState(false);
+  const [downloaded, setDownloaded] = useState(false);
 
   const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
+    loop: downloaded,
+    autoplay: downloaded,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
 
-  const handleCopy = () => {
-    const text = "aryamanrishabh@gmail.com";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
+  const handleDownload = () => {
+    try {
+      const pdfUrl = "/Aryaman's-Resume.pdf";
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = "Aryaman's-Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setDownloaded(true);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -79,8 +88,6 @@ export const BentoGridItem = ({
         className,
       )}
       style={{
-        //   add these two
-        //   you can generate the color from here https://cssgradient.io/
         background: "rgb(4,7,29)",
         backgroundColor:
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
@@ -97,6 +104,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
+
         <div
           className={`absolute right-0 -bottom-5 ${
             id === 5 && "w-full opacity-80"
@@ -111,6 +119,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
+
         {id === 6 && (
           <BackgroundGradientAnimation>
             <div className="pointer-events-none absolute inset-0 z-50 flex items-center justify-center px-4 text-center text-3xl font-bold text-white md:text-4xl lg:text-7xl"></div>
@@ -162,12 +171,12 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
+
           {id === 6 && (
             <div className="relative mt-5">
-              {/* add handleCopy() for the copy the text */}
               <div
                 className={`absolute right-0 -bottom-5 ${
-                  copied ? "block" : "block"
+                  downloaded ? "block" : "block"
                 }`}
               >
                 <Lottie options={defaultOptions} height={200} width={400} />
@@ -175,10 +184,10 @@ export const BentoGridItem = ({
 
               <MagicButton
                 position="left"
-                handleClick={handleCopy}
+                handleClick={handleDownload}
                 classNames="!bg-[#161A31]"
-                icon={<FiCopy className="min-w-4" />}
-                title={copied ? "Email is Copied!" : "Copy email address"}
+                icon={<FiDownload className="min-w-4" strokeWidth={2.5} />}
+                title={downloaded ? "Resume downloaded!" : "Download Resume"}
               />
             </div>
           )}

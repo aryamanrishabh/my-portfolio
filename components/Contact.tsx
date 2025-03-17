@@ -7,7 +7,7 @@ import { socialMedia } from "@/lib/metadata";
 
 const Contact = () => {
   return (
-    <footer className="w-full py-20" id="contact">
+    <footer className="w-full pt-20 pb-12 md:py-20" id="contact">
       <div className="absolute -bottom-72 left-0 min-h-96 w-full">
         <img
           draggable={false}
@@ -42,7 +42,7 @@ const Contact = () => {
         </a>
       </div>
 
-      <div className="mt-16 flex flex-col items-center justify-between md:flex-row">
+      <div className="mt-16 flex flex-col items-center justify-between gap-y-4 md:flex-row">
         <p className="text-sm font-light md:text-base md:font-normal">
           Copyright © 2025 Aryaman
         </p>

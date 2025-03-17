@@ -27,19 +27,18 @@ export const Timeline = ({ data }: { data: WorkExperience[] }) => {
   return (
     <div
       ref={containerRef}
-      className="dark:bg-black-100 w-full bg-white font-sans"
+      className="dark:bg-black-100 mt-[112px] w-full bg-white font-sans md:mt-0"
     >
-      <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 pt-12 pb-8 md:px-8 md:py-20 lg:px-10">
         <h2 className="mb-4 max-w-4xl text-lg text-black md:text-4xl dark:text-white">
-          Changelog from my journey
+          My Journey So Far
         </h2>
         <p className="max-w-sm text-sm text-neutral-700 md:text-base dark:text-neutral-300">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
+          A look at the roles and experiences that have shaped my path in tech.
         </p>
       </div>
 
-      <div ref={ref} className="relative mx-auto max-w-7xl pb-20">
+      <div ref={ref} className="pb:16 relative mx-auto max-w-7xl md:pb-20">
         {data.map((item, index) => (
           <div
             key={index}

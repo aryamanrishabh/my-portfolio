@@ -3,22 +3,22 @@
 import { motion } from "motion/react";
 
 import {
+  JS,
+  TS,
   Aws,
   CSS,
-  Docker,
   Git,
   HTML,
-  JS,
   Next,
-  Postgres,
-  Prisma,
+  TRPC,
   React,
   Redux,
+  Prisma,
+  Docker,
+  Postgres,
   Tailwind,
-  Three,
-  TRPC,
-  TS,
 } from "@/assets";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const stacks = [
   { logo: Aws, name: "Aws" },
@@ -32,7 +32,6 @@ const stacks = [
   { logo: Next, name: "Next" },
   { logo: TRPC, name: "tRPC" },
   { logo: Redux, name: "Redux" },
-  { logo: Three, name: "Three" },
   { logo: Prisma, name: "Prisma" },
   { logo: Postgres, name: "Postgres" },
   { logo: Tailwind, name: "Tailwind" },
@@ -47,24 +46,25 @@ const stacks = [
   { logo: Next, name: "Next" },
   { logo: TRPC, name: "tRPC" },
   { logo: Redux, name: "Redux" },
-  { logo: Three, name: "Three" },
   { logo: Prisma, name: "Prisma" },
   { logo: Postgres, name: "Postgres" },
   { logo: Tailwind, name: "Tailwind" },
 ];
 
 const StackAnimation = () => {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="w-screen justify-self-center bg-purple-200/10 py-8 opacity-80">
+    <div className="absolute left-0 w-screen justify-self-center bg-purple-200/10 py-8 opacity-80 md:static">
       <div className="container mx-auto">
         <div className="overflow-hidden [mask-image:linear-gradient(to_right,_transparent,_black_25%,_black_75%,_transparent)]">
           <motion.div
             className="flex flex-none items-center gap-x-12 pr-14"
-            animate={{ translateX: "-50%" }}
+            animate={{ translateX: isMobile ? "-100%" : "-50%" }}
             transition={{
               duration: 20,
-              repeat: Infinity,
               ease: "linear",
+              repeat: Infinity,
               repeatType: "loop",
             }}
           >
