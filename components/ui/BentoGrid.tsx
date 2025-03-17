@@ -12,6 +12,9 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 
 import animationData from "@/lib/confetti.json";
 
+const leftLists = ["JavaScript", "ReactJS", "NextJS"];
+const rightLists = ["TypeScript", "Redux", "NodeJS"];
+
 export const BentoGrid = ({
   className,
   children,
@@ -33,28 +36,24 @@ export const BentoGrid = ({
 };
 
 export const BentoGridItem = ({
-  className,
   id,
-  title,
-  description,
-  //   remove unecessary things here
   img,
+  title,
+  spareImg,
+  className,
+  description,
   imgClassName,
   titleClassName,
-  spareImg,
 }: {
-  className?: string;
   id: number;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
   img?: string;
+  spareImg?: string;
+  className?: string;
   imgClassName?: string;
   titleClassName?: string;
-  spareImg?: string;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
 }) => {
-  const leftLists = ["JavaScript", "ReactJS", "NextJS"];
-  const rightLists = ["TypeScript", "Redux", "NodeJS"];
-
   const [downloaded, setDownloaded] = useState(false);
 
   const defaultOptions = {
@@ -68,6 +67,8 @@ export const BentoGridItem = ({
 
   const handleDownload = () => {
     try {
+      if (typeof document === "undefined") return;
+
       const pdfUrl = "/Aryaman's-Resume.pdf";
       const link = document.createElement("a");
       link.href = pdfUrl;
