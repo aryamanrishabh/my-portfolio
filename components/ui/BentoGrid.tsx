@@ -67,7 +67,7 @@ export const BentoGridItem = ({
 
   const handleDownload = () => {
     try {
-      if (typeof document === "undefined") return;
+      if (typeof window === "undefined") return;
 
       const pdfUrl = "/Aryaman's-Resume.pdf";
       const link = document.createElement("a");
