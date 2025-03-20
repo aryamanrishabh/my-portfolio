@@ -4,9 +4,11 @@ const useIsMobile = (breakpoint: number = 768) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleResize = () => setIsMobile(window.innerWidth < breakpoint);
 
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
