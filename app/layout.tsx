@@ -8,8 +8,18 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aryaman's Portfolio",
-  description: "Modern & Minimalist Portfolio",
+  title: "Aryaman Rishabh | Full-Stack Software Engineer",
+  description:
+    "Full-Stack Software Engineer with proficiency in Next.js, React, AWS, and cloud computing. Passionate about building scalable and performant web applications.",
+  keywords:
+    "Aryaman Rishabh, Software Engineer, Next.js Developer, React, AWS, Full Stack Developer, Frontend Engineer, Web Developer Portfolio",
+  openGraph: {
+    type: "website",
+    url: "https://aryamanrishabh.com/",
+    title: "Aryaman Rishabh | Full-Stack Software Engineer",
+    description:
+      "Skilled in Next.js, React, and AWS. Passionate about building scalable web apps and cloud solutions.",
+  },
 };
 
 export default function RootLayout({
