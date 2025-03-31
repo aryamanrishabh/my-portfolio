@@ -12,7 +12,7 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 
 import animationData from "@/lib/confetti.json";
 
-const leftLists = ["JavaScript", "ReactJS", "NextJS"];
+const leftLists = ["JavaScript", "React", "NextJS"];
 const rightLists = ["TypeScript", "Redux", "NodeJS"];
 
 export const BentoGrid = ({

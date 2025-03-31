@@ -21,7 +21,7 @@ const GridBackground = () => {
         />
 
         <span className="mb-4 text-center text-sm md:text-lg md:tracking-wider lg:text-2xl">
-          Hi! I&apos;m Aryaman, a Next.js Developer based in the United States.
+          Hi! I&apos;m Aryaman, a Software Developer based in the United States.
         </span>
 
         <a href="#about">
