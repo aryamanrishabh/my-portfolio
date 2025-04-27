@@ -7,21 +7,30 @@ import {
   AnimatePresence,
   useMotionValueEvent,
 } from "motion/react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { NavItem } from "@/lib/types";
 
-const FloatingNav = ({
-  navItems,
-  className,
-}: {
-  navItems: NavItem[];
-  className?: string;
-}) => {
+import { navItems } from "@/lib/metadata";
+
+const FloatingNav = ({ className }: { className?: string }) => {
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(false);
+
+  const handleClick = (id: string) => {
+    try {
+      if (typeof window === "undefined") return;
+
+      const element = document.getElementById(id);
+
+      if (id === navItems[2].id) {
+        window.scrollTo(0, document.body.scrollHeight);
+      } else element?.scrollIntoView({ behavior: "smooth" });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -59,9 +68,9 @@ const FloatingNav = ({
         )}
       >
         {navItems.map((navItem: NavItem, idx: number) => (
-          <Link
+          <button
             key={`link=${idx}`}
-            href={navItem.link}
+            onClick={() => handleClick(navItem.id)}
             className={cn(
               "group relative inline-flex overflow-hidden rounded-full p-[1px] hover:text-neutral-500 focus:outline-none dark:text-neutral-50 dark:hover:text-neutral-300",
               className,
@@ -71,7 +80,7 @@ const FloatingNav = ({
             <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-1 py-1 text-sm tracking-wide backdrop-blur-3xl sm:block md:px-3">
               {navItem.name}
             </span>
-          </Link>
+          </button>
         ))}
       </motion.div>
     </AnimatePresence>

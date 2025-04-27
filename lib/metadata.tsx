@@ -5,9 +5,9 @@ import { AiOutlineMedium, AiOutlineLinkedin } from "react-icons/ai";
 import { GridItem, NavItem, SocialMedia, WorkExperience } from "./types";
 
 export const navItems: NavItem[] = [
-  { name: "About", link: "#about" },
-  { name: "Experience", link: "#experience" },
-  { name: "Contact", link: "#contact" },
+  { name: "About", id: "about" },
+  { name: "Experience", id: "experience" },
+  { name: "Contact", id: "contact" },
 ];
 
 export const gridItems: GridItem[] = [

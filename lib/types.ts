@@ -1,8 +1,8 @@
 import { JSX } from "react";
 
 export type NavItem = {
+  id: string;
   name: string;
-  link: string;
   icon?: JSX.Element;
 };
 
